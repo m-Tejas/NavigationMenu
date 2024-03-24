@@ -1,0 +1,59 @@
+body::before {
+    content: "";
+    position: absolute;
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 10px;
+}
+
+nav ul {
+    margin: 0;
+    padding: 20px;
+    list-style: none;
+    display: flex;
+    gap: 100px;
+    z-index: 1;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 10px;
+    position: relative; 
+}
+
+.navbar a::after { 
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0;
+    background-color: white;
+    transition: width 0.3s;
+}
+
+.navbar a:hover::after, 
+.navbar a.active::after { 
+    width: 100%;
+}
+
+.navbar a.active::after { 
+    background-color: red; /* Change to red color */
+    box-shadow: 0 0 5px rgb(231, 151, 151), 0 0 10px rgb(225, 94, 94), 0 0 15px rgb(235, 48, 48), 0 0 20px rgb(241, 5, 5); /* Neon glow effect */
+}
+
+@media screen and (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+    }
+}
